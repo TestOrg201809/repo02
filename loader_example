@@ -1,0 +1,12 @@
+load data
+infile '__FNAME__'
+into table item_of_interest
+append
+fields terminated by ',' optionally enclosed by '"'
+(OBSERVED_ON date 'yyyy-mm-dd hh24:mi:ss',
+ HOSTNAME "lower(:hostname)",
+ item_type "lower(:item_type)",
+ item_value,
+ item_multiplicity,
+ notes char(1024)
+)
